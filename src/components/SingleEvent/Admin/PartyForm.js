@@ -440,8 +440,8 @@ class PartyForm extends Component {
                   },
                   loading
                 }) => {
-                  if (address && !this.state.daiAddress) {
-                    this.setState({ daiAddress: address })
+                  if (address && !this.state.tokenAddress) {
+                    this.setState({ tokenAddress: address })
                   }
                   return (
                     <InputWrapper>
