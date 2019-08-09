@@ -170,7 +170,7 @@ class Provider extends Component {
   }
 
   async componentDidMount() {
-    if (await getApplicationWallet().contractAddress) {
+    if (await getApplicationWallet()) {
       useUniversalLogin()
     }
     await this.reloadUserAddress()
