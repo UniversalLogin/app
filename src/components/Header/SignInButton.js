@@ -6,7 +6,7 @@ import Button from '../Forms/Button'
 import Avatar from '../User/Avatar'
 import { EDIT_PROFILE, UNIVERSAL_LOGIN } from '../../modals'
 import { LogoButton } from '@universal-login/react'
-import { universalLoginSdk } from '../../universal-login'
+import { universalLoginSdk, useUniversalLogin } from '../../universal-login'
 
 const Account = styled('div')`
   display: flex;
@@ -55,7 +55,10 @@ function SignInButton() {
         ) : (
           <Button
             type="light"
-            onClick={() => showModal({ name: UNIVERSAL_LOGIN })}
+            onClick={() => {
+              useUniversalLogin()
+              showModal({ name: UNIVERSAL_LOGIN })
+            }}
             analyticsId="Sign In"
           >
             Sign in
