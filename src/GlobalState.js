@@ -192,7 +192,7 @@ class Provider extends Component {
     let address
     if (isUsingUniversalLogin()) {
       const applicationWallet = await getApplicationWallet()
-      address = applicationWallet.publicKey
+      address = applicationWallet.contractAddress
       this.setState({ applicationWallet })
     } else {
       address = await getAccount()
