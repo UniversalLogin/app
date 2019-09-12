@@ -1,3 +1,4 @@
+import { ETHER_NATIVE_TOKEN } from '@universal-login/commons'
 import UniversalLoginSdk from '@universal-login/sdk'
 import * as LocalStorage from '../api/localStorage'
 import { utils, Wallet } from 'ethers'
@@ -5,7 +6,13 @@ import { utils, Wallet } from 'ethers'
 export const universalLoginSdk = new UniversalLoginSdk(
   // TODO: GET NETWORK FROM CONFIG
   'https://relayer-rinkeby.herokuapp.com',
-  'https://rinkeby.infura.io'
+  'https://rinkeby.infura.io/v3/b3026fc5137a4bd18e5d5906ed49f77d',
+  {
+    observedTokensAddresses: [
+      ETHER_NATIVE_TOKEN.address,
+      '0x5f81e2afde8297f90b3f9179f8f3ea172f3155a8'
+    ]
+  }
 )
 
 const STORAGE_KEY = 'universalLoginWallet'
