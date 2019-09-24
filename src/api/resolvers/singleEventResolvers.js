@@ -202,7 +202,11 @@ const resolvers = {
     async rsvp(_, { address }) {
       try {
         if (isUsingUniversalLogin()) {
-          const deposit = await getDeposit(address, abi)
+          const deposit = await getDeposit(
+            address,
+            abi,
+            universalLoginSdk.provider
+          )
           return await registerToEvent(
             await getApplicationWallet(),
             address,

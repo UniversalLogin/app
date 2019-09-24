@@ -87,6 +87,7 @@
     "babel-plugin-macros": "^2.4.2",
     "cypress": "^3.1.2",
     "cypress-testing-library": "^2.3.3",
+    "ethereum-waffle": "^2.1.0",
     "ganache-cli": "^6.1.8",
     "graphql-request": "^1.8.2",
     "husky": "^1.2.0",

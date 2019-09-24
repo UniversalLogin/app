@@ -4,28 +4,16 @@ import {
   ETHER_NATIVE_TOKEN,
   OPERATION_CALL
 } from '../../node_modules/@universal-login/commons'
+import { EMPTY_ADDRESS } from '../api/utils'
 
-export const getDeposit = async (contractAddress, abi) => {
-  const contract = new Contract(
-    contractAddress,
-    abi,
-    universalLoginSdk.provider
-  )
+export const getDeposit = async (contractAddress, abi, provider) => {
+  const contract = new Contract(contractAddress, abi, provider)
   const tokenAddress = await contract.tokenAddress()
   if (tokenAddress && tokenAddress !== EMPTY_ADDRESS) {
     return 0
   } else {
-    return getDeposit(address, abi)
+    return contract.deposit()
   }
-}
-
-export const getTokenAddress = (contractAddress, abi) => {
-  const contract = new Contract(
-    contractAddress,
-    abi,
-    universalLoginSdk.provider
-  )
-  return contract.tokenAddress()
 }
 
 export const registerToEvent = async (
