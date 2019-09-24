@@ -5,13 +5,27 @@ import {
   OPERATION_CALL
 } from '../../node_modules/@universal-login/commons'
 
-export const getDeposit = (contractAddress, abi) => {
+export const getDeposit = async (contractAddress, abi) => {
   const contract = new Contract(
     contractAddress,
     abi,
     universalLoginSdk.provider
   )
-  return contract.deposit()
+  const tokenAddress = await contract.tokenAddress()
+  if (tokenAddress && tokenAddress !== EMPTY_ADDRESS) {
+    return 0
+  } else {
+    return getDeposit(address, abi)
+  }
+}
+
+export const getTokenAddress = (contractAddress, abi) => {
+  const contract = new Contract(
+    contractAddress,
+    abi,
+    universalLoginSdk.provider
+  )
+  return contract.tokenAddress()
 }
 
 export const registerToEvent = async (

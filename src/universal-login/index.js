@@ -46,4 +46,4 @@ export const signString = (stringToSign, privateKey) => {
   return utils.joinSignature(signature)
 }
 
-export { getDeposit, registerToEvent } from './rsvp'
+export { getDeposit, registerToEvent, getTokenAddress } from './rsvp'
