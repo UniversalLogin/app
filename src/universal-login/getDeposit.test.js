@@ -20,9 +20,9 @@ describe('getDeposit', () => {
       wallet.address
     ])
     expect(await ethConference.tokenAddress()).toEqual(AddressZero)
-    expect(
-      await getDeposit(ethConference.address, EthConference.abi, provider)
-    ).toEqual(utils.bigNumberify(deposit))
+    expect(await getDeposit(ethConference.address, provider)).toEqual(
+      utils.bigNumberify(deposit)
+    )
   })
 
   it('erc20 conference', async () => {
@@ -37,8 +37,6 @@ describe('getDeposit', () => {
       erc20.address
     ])
     expect(await erc20Conference.tokenAddress()).toEqual(erc20.address)
-    expect(
-      await getDeposit(erc20Conference.address, ERC20Conference.abi, provider)
-    ).toEqual(0)
+    expect(await getDeposit(erc20Conference.address, provider)).toEqual(0)
   })
 })
