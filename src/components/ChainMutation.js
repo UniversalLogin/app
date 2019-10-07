@@ -296,6 +296,10 @@ export class ChainMutationButton extends Component {
 
   _onClick = ({ networkState, reloadUserAddress, postMutation, action }) => {
     this.setState({ notReadyError: null }, async () => {
+      if (isUsingUniversalLogin()) {
+        postMutation()
+        return
+      }
       const address = await reloadUserAddress()
 
       let assist = await Assist({
