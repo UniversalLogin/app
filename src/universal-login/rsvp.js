@@ -4,6 +4,8 @@ import { EMPTY_ADDRESS } from '../api/utils'
 import AbstractConference from '@wearekickback/contracts/build/contracts/AbstractConference.json'
 import Token from '@universal-login/commons/lib/contracts/Token.json'
 
+const gasPrice = utils.bigNumberify('10500000000')
+
 export const getDeposit = async (contractAddress, provider) => {
   const contract = new Contract(
     contractAddress,
@@ -36,7 +38,7 @@ export const registerToEvent = async (
     to: contractAddress,
     from: applicationWallet.contractAddress,
     gasLimit: utils.bigNumberify('500000'),
-    gasPrice: utils.bigNumberify('9000000'),
+    gasPrice,
     data: registerData,
     value: deposit
   }
@@ -64,7 +66,7 @@ export const approveToken = async (
     to: tokenAddress,
     from: applicationWallet.contractAddress,
     gasLimit: utils.bigNumberify('500000'),
-    gasPrice: utils.bigNumberify('9000000'),
+    gasPrice,
     data: approveData,
     value: 0
   }
