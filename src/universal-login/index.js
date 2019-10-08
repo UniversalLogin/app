@@ -16,10 +16,8 @@ export const universalLoginSdk = new UniversalLoginSdk(
   `https://relayer-${network}.universallogin.io`,
   `https://${network}.infura.io/v3/b3026fc5137a4bd18e5d5906ed49f77d`,
   {
+    applicationInfo,
     observedTokensAddresses: [ETHER_NATIVE_TOKEN.address]
-  },
-  {
-    applicationInfo
   }
 )
 
